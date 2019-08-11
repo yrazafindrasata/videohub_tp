@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+
+    {% for video in app.user.videos%}
+        <li>Title:<a href="{{ path('video_profile',{'id': video.id})}} ">{{ video.title }}</a></li>
+        <li>CreatedAt : {{ video.createdAt|date("m/d/Y") }}</li>
+        <li>Category : {{ video.category.label }}</li></br>
+    {% endfor %}
+
+{% endblock %}

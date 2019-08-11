@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+        <li>Title:{{ video.title }}</li>
+        <li>CreatedAt : {{ video.createdAt|date("m/d/Y") }}</li>
+        <li>CreatedAt : {{ video.description}}</li>
+        <li>User : <a href="{{ path('profileUser',{'id':video.user.id}) }}">{{ video.user.firstName }} - {{ video.user.lastName }}</a></li>
+        <li>Category : <a href="{{ path('videosCategory',{'id': video.category.id})}} ">{{ video.category.label }}</a></li>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}admin{% endblock %}
+
+{% block body %}
+    <h1>Users</h1>
+    <ul>
+        {% for user in allUser %}
+            <li>{{ user.firstName }}</li>
+            <li>{{ user.lastName }}</li>
+            <li>{{ user.email }}</li>
+            <li>{{ user.birthday|date("m/d/Y") }}</li>
+            <li><a href="{{ path('user_remove', {'id': user.id}) }} ">Remove</a></li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}

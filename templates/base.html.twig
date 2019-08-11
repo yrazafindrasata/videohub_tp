@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        {% block body %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p>Email: {{ app.user.email }}</p>
+            {% else %}
+                <p>Welcome Anonymous</p>
+            {% endif %}
+            <ul>
+                <li><a href="{{ path('home')}} ">home</a></li>
+            {#    <li><a href="{{ path('videoByCategory')}} ">category</a></li>#}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><a href="{{ path('account')}} ">my account</a></li>
+                <li><a href="{{ path('logout')}} ">logout</a></li>
+            {% else %}
+                <li><a href="{{ path('login')}} ">login</a></li>
+                <li><a href="{{ path('register')}} ">register</a></li>
+            {% endif %}
+            </ul>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

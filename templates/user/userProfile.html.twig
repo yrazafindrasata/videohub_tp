@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <li><a href="{{ path('profileUserEdit',{'id':app.user.id}) }}">edit my profile</a></li>
+    <li><a href="{{ path('videoEdit',{'id':app.user.id}) }}">show my videos</a></li>
+    <li><a href="{{ path('addVideo') }}">add video</a></li>
+
+{% endblock %}

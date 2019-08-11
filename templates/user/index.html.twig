@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>Users</h1>
+    <ul>
+            <li>{{ user.firstName }}</li>
+            <li>{{ user.lastName }}</li>
+            <li>{{ user.email }}</li>
+            <li>{{ user.birthday|date("m/d/Y") }}</li>
+    </ul>
+
+
+{% endblock %}
